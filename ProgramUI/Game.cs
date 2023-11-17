@@ -20,6 +20,11 @@ public class Game
     }
 
     public void Run() {
+        //Get the Room the Player
+        // Level.Rooms[player.Y][player.X].Render();
         testing.Render();
+        
+
+        
     }
 }
