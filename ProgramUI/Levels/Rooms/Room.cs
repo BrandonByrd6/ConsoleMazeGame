@@ -21,6 +21,15 @@ public class Room
         Enemies = enemies;
     }
 
+    public Room(RoomType roomType, string descriptiveText){
+        RoomType = roomType;
+        _descriptiveText = descriptiveText;
+    }
+
+    public void setEnemyList(List<Enemy> enemies) {
+        Enemies = enemies;
+    }
+
     //Need Render Function -> display Falvor Text to the Screen/The the Player know if there are enemies.
     //   => Wait for Input
     public void Render() {
