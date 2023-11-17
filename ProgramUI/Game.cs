@@ -2,6 +2,7 @@ using ProgramUI.Levels.Rooms;
 using ProgramUI.Entites.Enemies;
 using ProgramUI.Levels;
 using ProgramUI.Entites;
+using System.IO.Compression;
 namespace ProgramUI;
 
 
@@ -16,7 +17,15 @@ public class Game
     // Handle Input -> from the User in some way.
 
     // Welcome(Start) Screen
+    public void RunGame()
+    {
+        RunApp();
+    }
+
+
     // You Lose/Win Screens
+
+
     // Taken Damage Screen -> Player Specific?  
 
     // Room testing = new Room(RoomType.Up, "Testing 101", new List<Enemy>());
@@ -72,6 +81,100 @@ public class Game
         // rooms[1][1].Render();
         // rooms[1][2].Render();
         // rooms[2][0].Render();
-        _levelManager.GenerateLevelFromFile("./ProgramUI/Assets/Test_1.Txt");
+        // _levelManager.GenerateLevelFromFile("./ProgramUI/Assets/Test_1.Txt");
+    }
+
+    private void RunApp()
+    {
+        bool isRunning = true;
+        while(isRunning)
+        {
+            System.Console.WriteLine("welcome to our game!\n" +
+            "please enter the option you would like to select:\n"+
+            "1. Start Game\n");
+            // todo: leaderboard? select player/item/attacks?
+
+            string userInput = Console.ReadLine()!.ToLower();
+
+            switch (userInput)
+            {
+                case "1":
+                case "start":
+                    Run();
+                    break;
+                default:
+                    System.Console.WriteLine("invalid selection. please try again.");
+                    break;
+            }
+
+        }
+    }
+
+    private void Leaderboard()
+    {
+        System.Console.WriteLine("Leaderboard:\n" +
+        "1. Jon\n" +
+        "2. Jill\n" +
+        "3. Steve\n");
+    }
+
+    private void YouWin()
+    {
+        System.Console.WriteLine("Congratulations! You have made it out of the maze!");
+        Options();
+    }
+
+    private void YouLose()
+    {
+        // if(health = 0)   //todo ?
+        System.Console.WriteLine("You died...");
+        Options();
+    }
+
+    private void Options()
+    {
+        System.Console.WriteLine("Please select an option:\n" +
+        "1. Start New Game\n" +
+        "2. Exit");
+
+        string selectedOption = Console.ReadLine()!.ToLower();
+
+        switch (selectedOption)
+        {
+            case "1":
+            case "start new game":
+                PlayAgain();
+                break;
+            case "2":
+            case "exit":
+                Exit();
+                break;
+            default:
+                System.Console.WriteLine("invalid selection. please try again.");
+                break;
+        }
+    }
+
+    private void PlayAgain()
+    {
+        RunApp();
+    }
+
+    private void Exit()
+    {
+        CloseApp();
+    }
+
+    private bool CloseApp()
+    {
+        System.Console.WriteLine("Thanks for playing");
+        PressAnyKey();
+        return false;
+    }
+
+    private void PressAnyKey()
+    {
+        System.Console.WriteLine("Press any key to continue...");
+        Console.ReadKey();
     }
 }
