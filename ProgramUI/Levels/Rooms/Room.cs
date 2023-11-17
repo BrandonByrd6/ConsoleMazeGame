@@ -31,6 +31,7 @@ public class Room
             System.Console.WriteLine(_descriptiveText+"\n");
             System.Console.WriteLine($"There is {Enemies.Count} enemy in the room");
         }
+        ShowMovementOptions();
     }
 
     private void ShowMovementOptions() {
@@ -41,6 +42,59 @@ public class Room
 
                 case RoomType.UpDownLeft:
                     System.Console.WriteLine("1. Up, 2. Down, 3. Left\n");
+                    break;
+
+                case RoomType.UpDown:
+                    System.Console.WriteLine("1. Up, 2. Down\n");
+                    break;
+
+                case RoomType.UpRight:
+                    System.Console.WriteLine("1. Up, 2. Right\n");
+                    break;
+
+                case RoomType.UpLeft:
+                    System.Console.WriteLine("1. Up, 2. Left\n");
+                    break;
+
+                case RoomType.UpDownRight:
+                    System.Console.WriteLine("1. Up, 2. Down, 3. Right\n");
+                    break;
+
+                case RoomType.Down:
+                    System.Console.WriteLine("1. Down\n");
+                    break;
+
+                case RoomType.DownRight:
+                    System.Console.WriteLine("1. Down, 2. Right\n");
+                    break;
+
+                case RoomType.DownLeft:
+                    System.Console.WriteLine("1. Down, 2. Left\n");
+                    break;
+
+                case RoomType.Left:
+                    System.Console.WriteLine("1. Left\n");
+                    break;
+
+                case RoomType.Right:
+                    System.Console.WriteLine("1. Right\n");
+                    break;
+
+                case RoomType.LeftRightDown:
+                    System.Console.WriteLine("1. Left, 2. Right, 3. Down\n");
+                    break;
+
+                case RoomType.LeftRight:
+                    System.Console.WriteLine("1. Left, 2, Right\n");
+                    break;
+
+                case RoomType.LeftRightUp:
+                    System.Console.WriteLine("1. Left, 2. Right, 3. Up\n");
+                    break;
+
+                case RoomType.All:
+                    System.Console.WriteLine("1. Up, 2. Down, 3. Left, 4. Right\n");
+                    break;
             }
     }
 }
