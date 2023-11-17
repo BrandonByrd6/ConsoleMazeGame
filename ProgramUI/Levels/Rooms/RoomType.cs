@@ -2,6 +2,7 @@ namespace ProgramUI.Levels.Rooms;
 
 public enum RoomType
 {
+    None = 0,
     Up = 1,
     Down,
     Left,

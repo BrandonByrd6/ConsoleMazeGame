@@ -23,12 +23,55 @@ public class Game
 
     public Game() {
         _player = new Player("Player", 10, 2, 0, 0);
+
+        /*
+            . 0 0
+            . . .
+            . 0 0
+        */
+        List<List<Room>> rooms = new List<List<Room>>{
+            new List<Room>{
+                new Room(RoomType.Down, "Foggy and empty Forset", new List<Enemy>()),
+                new Room(RoomType.None, "", new List<Enemy>()),
+                new Room(RoomType.None, "Foggy and empty Forset", new List<Enemy>()),
+            },
+            new List<Room>{
+                new Room(RoomType.UpDownLeft, "You See a Branching Path ahead", new List<Enemy>()),
+                new Room(RoomType.LeftRight, "Contining Straight", new List<Enemy>()),
+                new Room(RoomType.LeftRight, "Contining Straight", new List<Enemy>()),
+            },
+            new List<Room>{
+                new Room(RoomType.UpDown, "You See a Branching Path ahead", new List<Enemy>()),
+                new Room(RoomType.None, "Contining Straight", new List<Enemy>()),
+                new Room(RoomType.None, "Contining Straight", new List<Enemy>()),
+            }
+        };
+
+        List<Level> levels = new List<Level>{
+            new Level(1, rooms),
+            new Level(2, rooms),
+        };
+
+        _levelManager = new LevelManager(levels);
     }
 
 
     public void Run() {
-        //Get the Room the Player
-        // Level.Rooms[player.Y][player.X].Render();
+        List<List<Room>> rooms = _levelManager.GetRooms();
 
+        // System.Console.WriteLine(_levelManager.CurrentLevel.LevelNumber);
+        // rooms[0][0].Render();
+        // rooms[1][0].Render();
+        // rooms[1][1].Render();
+        // rooms[1][2].Render();
+        // rooms[2][0].Render();
+        // _levelManager.ChangeToNextLevel();
+        // System.Console.WriteLine(_levelManager.CurrentLevel.LevelNumber);
+        // rooms[0][0].Render();
+        // rooms[1][0].Render();
+        // rooms[1][1].Render();
+        // rooms[1][2].Render();
+        // rooms[2][0].Render();
+        _levelManager.GenerateLevelFromFile("./ProgramUI/Assets/Test_1.Txt");
     }
 }
