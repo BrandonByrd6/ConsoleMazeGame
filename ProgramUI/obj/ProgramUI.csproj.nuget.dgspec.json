@@ -1,27 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "/mnt/f/ElevenFiftyProjects/dotnetProjects/ConsoleMazeGame/ProgramUI/ProgramUI.csproj": {}
+    "F:\\ElevenFiftyProjects\\dotnetProjects\\ConsoleMazeGame\\ProgramUI\\ProgramUI.csproj": {}
   },
   "projects": {
-    "/mnt/f/ElevenFiftyProjects/dotnetProjects/ConsoleMazeGame/ProgramUI/ProgramUI.csproj": {
+    "F:\\ElevenFiftyProjects\\dotnetProjects\\ConsoleMazeGame\\ProgramUI\\ProgramUI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/mnt/f/ElevenFiftyProjects/dotnetProjects/ConsoleMazeGame/ProgramUI/ProgramUI.csproj",
+        "projectUniqueName": "F:\\ElevenFiftyProjects\\dotnetProjects\\ConsoleMazeGame\\ProgramUI\\ProgramUI.csproj",
         "projectName": "ProgramUI",
-        "projectPath": "/mnt/f/ElevenFiftyProjects/dotnetProjects/ConsoleMazeGame/ProgramUI/ProgramUI.csproj",
-        "packagesPath": "/home/grandon/.nuget/packages/",
-        "outputPath": "/mnt/f/ElevenFiftyProjects/dotnetProjects/ConsoleMazeGame/ProgramUI/obj/",
+        "projectPath": "F:\\ElevenFiftyProjects\\dotnetProjects\\ConsoleMazeGame\\ProgramUI\\ProgramUI.csproj",
+        "packagesPath": "C:\\Users\\Brandon\\.nuget\\packages\\",
+        "outputPath": "F:\\ElevenFiftyProjects\\dotnetProjects\\ConsoleMazeGame\\ProgramUI\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/home/grandon/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\Brandon\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net7.0"
         ],
-        "sources": {
-          "https://api.nuget.org/v3/index.json": {}
-        },
         "frameworks": {
           "net7.0": {
             "targetAlias": "net7.0",
@@ -53,7 +50,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/lib/dotnet/sdk/7.0.114/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.402\\RuntimeIdentifierGraph.json"
         }
       }
     }

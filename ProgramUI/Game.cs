@@ -1,4 +1,7 @@
+using ProgramUI.Levels.Rooms;
+using ProgramUI.Entites.Enemies;
 namespace ProgramUI;
+
 
 public class Game
 {
@@ -9,11 +12,14 @@ public class Game
     // Welcome(Start) Screen
     // You Lose/Win Screens
     // Taken Damage Screen -> Player Specific?  
-    //
 
-    public Game() {}
+    Room testing = new Room(RoomType.Up, "Testing 101", new List<Enemy>());
 
-    public Run() {
+    public Game() {
+        
+    }
 
+    public void Run() {
+        testing.Render();
     }
 }

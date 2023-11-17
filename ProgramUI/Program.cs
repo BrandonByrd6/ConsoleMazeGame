@@ -1,4 +1,5 @@
-﻿class Program {
+﻿namespace ProgramUI;
+class Program {
     static int Main(string[] args) {
         // Entry Point of our Application 
         // We need class to hold and Manage our Game
