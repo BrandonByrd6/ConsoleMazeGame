@@ -8,6 +8,7 @@ public class Room
 
     // Know which walls have opennings ENUM, 16 possiblities
     public RoomType RoomType {get; private set;}
+    public GoalType GoalType {get; private set;}
 
     // Falvor text -> Ex. what room looks like?
     private string _descriptiveText;
@@ -19,15 +20,21 @@ public class Room
         RoomType = roomType;
         _descriptiveText = descriptiveText;
         Enemies = enemies;
+        GoalType = GoalType.None; 
     }
 
     public Room(RoomType roomType, string descriptiveText){
         RoomType = roomType;
         _descriptiveText = descriptiveText;
+        GoalType = GoalType.None;
     }
 
     public void setEnemyList(List<Enemy> enemies) {
         Enemies = enemies;
+    }
+
+    public void setGoalType(GoalType goalType) {
+        GoalType = goalType;
     }
 
     //Need Render Function -> display Falvor Text to the Screen/The the Player know if there are enemies.
@@ -46,64 +53,68 @@ public class Room
     private void ShowMovementOptions() {
         switch(RoomType){
                 case RoomType.Up:
-                    System.Console.WriteLine("1. Up\n");
+                    System.Console.WriteLine("Up\n");
                     break;
 
                 case RoomType.UpDownLeft:
-                    System.Console.WriteLine("1. Up, 2. Down, 3. Left\n");
+                    System.Console.WriteLine("Up,  Down,  Left\n");
                     break;
 
                 case RoomType.UpDown:
-                    System.Console.WriteLine("1. Up, 2. Down\n");
+                    System.Console.WriteLine("Up,  Down\n");
                     break;
 
                 case RoomType.UpRight:
-                    System.Console.WriteLine("1. Up, 2. Right\n");
+                    System.Console.WriteLine("Up,  Right\n");
                     break;
 
                 case RoomType.UpLeft:
-                    System.Console.WriteLine("1. Up, 2. Left\n");
+                    System.Console.WriteLine("Up,  Left\n");
                     break;
 
                 case RoomType.UpDownRight:
-                    System.Console.WriteLine("1. Up, 2. Down, 3. Right\n");
+                    System.Console.WriteLine("Up,  Down,  Right\n");
                     break;
 
                 case RoomType.Down:
-                    System.Console.WriteLine("1. Down\n");
+                    System.Console.WriteLine("Down\n");
                     break;
 
                 case RoomType.DownRight:
-                    System.Console.WriteLine("1. Down, 2. Right\n");
+                    System.Console.WriteLine("Down,  Right\n");
                     break;
 
                 case RoomType.DownLeft:
-                    System.Console.WriteLine("1. Down, 2. Left\n");
+                    System.Console.WriteLine("Down,  Left\n");
                     break;
 
                 case RoomType.Left:
-                    System.Console.WriteLine("1. Left\n");
+                    System.Console.WriteLine("Left\n");
                     break;
 
                 case RoomType.Right:
-                    System.Console.WriteLine("1. Right\n");
+                    System.Console.WriteLine("Right\n");
                     break;
 
                 case RoomType.LeftRightDown:
-                    System.Console.WriteLine("1. Left, 2. Right, 3. Down\n");
+                    System.Console.WriteLine("Left,  Right,  Down\n");
                     break;
 
                 case RoomType.LeftRight:
-                    System.Console.WriteLine("1. Left, 2, Right\n");
+                    System.Console.WriteLine("Left, Right\n");
                     break;
 
                 case RoomType.LeftRightUp:
-                    System.Console.WriteLine("1. Left, 2. Right, 3. Up\n");
+                    System.Console.WriteLine("Left,  Right,  Up\n");
                     break;
 
                 case RoomType.All:
-                    System.Console.WriteLine("1. Up, 2. Down, 3. Left, 4. Right\n");
+                    System.Console.WriteLine("Up, Down, Left, Right\n");
                     break;
-            }
+        }
+
+        if(Enemies.Count > 0) {
+            System.Console.WriteLine("Or Attack\n");
+        }
     }
 }

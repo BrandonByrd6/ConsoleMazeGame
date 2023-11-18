@@ -14,8 +14,8 @@ public class Player : Entity
     }
 
     public void move(int x_offset, int y_offset) {
-        X = X - x_offset;
-        Y = Y - y_offset;
+        X = X + x_offset;
+        Y = Y + y_offset;
     }
 
     //TODO: Special Attack Functions

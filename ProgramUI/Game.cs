@@ -3,6 +3,7 @@ using ProgramUI.Entites.Enemies;
 using ProgramUI.Levels;
 using ProgramUI.Entites;
 using System.IO.Compression;
+using System.Reflection.Metadata;
 namespace ProgramUI;
 
 
@@ -38,51 +39,84 @@ public class Game
             . . .
             . 0 0
         */
-        List<List<Room>> rooms = new List<List<Room>>{
-            new List<Room>{
-                new Room(RoomType.Down, "Foggy and empty Forset", new List<Enemy>()),
-                new Room(RoomType.None, "", new List<Enemy>()),
-                new Room(RoomType.None, "Foggy and empty Forset", new List<Enemy>()),
-            },
-            new List<Room>{
-                new Room(RoomType.UpDownLeft, "You See a Branching Path ahead", new List<Enemy>()),
-                new Room(RoomType.LeftRight, "Contining Straight", new List<Enemy>()),
-                new Room(RoomType.LeftRight, "Contining Straight", new List<Enemy>()),
-            },
-            new List<Room>{
-                new Room(RoomType.UpDown, "You See a Branching Path ahead", new List<Enemy>()),
-                new Room(RoomType.None, "Contining Straight", new List<Enemy>()),
-                new Room(RoomType.None, "Contining Straight", new List<Enemy>()),
-            }
-        };
+        // List<List<Room>> rooms = new List<List<Room>>{
+        //     new List<Room>{
+        //         new Room(RoomType.Down, "Foggy and empty Forset", new List<Enemy>()),
+        //         new Room(RoomType.None, "", new List<Enemy>()),
+        //         new Room(RoomType.None, "Foggy and empty Forset", new List<Enemy>()),
+        //     },
+        //     new List<Room>{
+        //         new Room(RoomType.UpDownLeft, "You See a Branching Path ahead", new List<Enemy>()),
+        //         new Room(RoomType.LeftRight, "Contining Straight", new List<Enemy>()),
+        //         new Room(RoomType.LeftRight, "Contining Straight", new List<Enemy>()),
+        //     },
+        //     new List<Room>{
+        //         new Room(RoomType.UpDown, "You See a Branching Path ahead", new List<Enemy>()),
+        //         new Room(RoomType.None, "Contining Straight", new List<Enemy>()),
+        //         new Room(RoomType.None, "Contining Straight", new List<Enemy>()),
+        //     }
+        // };
+
+        //TODO: Load Levels from files 
+
+        _levelManager = new LevelManager();
 
         List<Level> levels = new List<Level>{
-            new Level(1, rooms),
-            new Level(2, rooms),
+            _levelManager.GenerateLevelFromFile("./ProgramUI/Assets/Test_1.Txt")
         };
 
-        _levelManager = new LevelManager(levels);
+        _levelManager.SetLevels(levels);
     }
 
 
     public void Run() {
         List<List<Room>> rooms = _levelManager.GetRooms();
+        bool isRunning = true;
+        while(isRunning) {
+            Room currentRoom = rooms[_player.Y][_player.X];
+            if(currentRoom.GoalType == GoalType.End) {
+                YouWinLevel();
+                PressAnyKey();
+                _levelManager.ChangeToNextLevel();
+                _levelManager.findStart();
+            }
 
-        // System.Console.WriteLine(_levelManager.CurrentLevel.LevelNumber);
-        // rooms[0][0].Render();
-        // rooms[1][0].Render();
-        // rooms[1][1].Render();
-        // rooms[1][2].Render();
-        // rooms[2][0].Render();
-        // _levelManager.ChangeToNextLevel();
-        // System.Console.WriteLine(_levelManager.CurrentLevel.LevelNumber);
-        // rooms[0][0].Render();
-        // rooms[1][0].Render();
-        // rooms[1][1].Render();
-        // rooms[1][2].Render();
-        // rooms[2][0].Render();
-<<<<<<< HEAD
-        // _levelManager.GenerateLevelFromFile("./ProgramUI/Assets/Test_1.Txt");
+            currentRoom.Render();
+            //TODO: Function to handle input
+            string userInput = Console.ReadLine();
+            HandleInput(userInput);
+        }
+    }
+
+    public void HandleInput(string userInput) {
+        switch(userInput.ToLower()) {
+            case "up":
+                ProposedMove(0, -1);
+                break;
+            case "down":
+                ProposedMove(0, 1);
+                break;
+            case "left":
+                ProposedMove(-1, 0);
+                break;
+            case "right":
+                ProposedMove(+1, 0);
+                break;
+            case "attack":
+                //Todo: Attack stuff
+                break;
+            default:
+                System.Console.WriteLine("invalid selection. please try again.");
+                break;
+        }
+    }
+
+    public void ProposedMove(int x_offset, int y_offset){
+        Room pRoom = _levelManager.GetRooms()[_player.Y + y_offset][_player.X + x_offset];
+
+        if(pRoom.RoomType != RoomType.None) {
+            _player.move(x_offset, y_offset);   
+        }
     }
 
     private void RunApp()
@@ -117,6 +151,11 @@ public class Game
         "1. Jon\n" +
         "2. Jill\n" +
         "3. Steve\n");
+    }
+
+    private void YouWinLevel()
+    {
+        System.Console.WriteLine("Congratulations! You have made it to the End of the Level\n\n Moving to the Next Level");
     }
 
     private void YouWin()
@@ -177,9 +216,5 @@ public class Game
     {
         System.Console.WriteLine("Press any key to continue...");
         Console.ReadKey();
-=======
-        Level level = _levelManager.GenerateLevelFromFile("./ProgramUI/Assets/Test_1.Txt");
-        System.Console.WriteLine(level.Rooms[0][3].Enemies.Count);
->>>>>>> loadleveldev
     }
 }

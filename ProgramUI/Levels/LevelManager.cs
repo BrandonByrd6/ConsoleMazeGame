@@ -24,6 +24,24 @@ public class LevelManager
         }
     }
 
+    public LevelManager()
+    {
+        Levels = new List<Level>();
+    }
+
+    public void SetLevels(List<Level> levels){
+        Levels = levels;
+        int newLevelNumber = 1;
+        foreach (Level level in Levels)
+        {
+            if (level.LevelNumber == newLevelNumber)
+            {
+                CurrentLevel = level;
+                break;
+            }
+        }
+    }
+
     //Currently Level
 
     //Method to Change Level
@@ -107,9 +125,6 @@ public class LevelManager
             // Tokens = ["Level Number", "1"]
 
 
-
-
-
             string[] tokens = lines[i].Split(":");
             if (tokens[0] == "Level Number")
             {
@@ -187,7 +202,13 @@ public class LevelManager
                     }
                 }
                 RoomType roomType = GetRoomType(x, y, map);
-                roomLine.Add(new Room(roomType, descriptiveText));
+                Room room = new Room(roomType, descriptiveText);
+                if(GetRoomNumber(map[y][x]) == 2) {
+                    room.setGoalType(GoalType.Start);
+                } else if(GetRoomNumber(map[y][x]) == 3) {
+                     room.setGoalType(GoalType.End);
+                }
+                roomLine.Add(room);
             }
             rooms.Add(roomLine);
         }
