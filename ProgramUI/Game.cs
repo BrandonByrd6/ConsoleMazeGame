@@ -56,13 +56,19 @@ public class Game
         //         new Room(RoomType.None, "Contining Straight", new List<Enemy>()),
         //     }
         // };
+        //
+        // List<Level> levels = new List<Level>{
+        //  new Level(1, rooms);  
+        //}
+        // _levelManager = new LevelManager(levels);
 
         //TODO: Load Levels from files 
 
         _levelManager = new LevelManager();
 
         List<Level> levels = new List<Level>{
-            _levelManager.GenerateLevelFromFile("./ProgramUI/Assets/Test_1.Txt")
+            _levelManager.GenerateLevelFromFile("./ProgramUI/Assets/level1.txt"),
+            _levelManager.GenerateLevelFromFile("./ProgramUI/Assets/level2.txt")
         };
 
         _levelManager.SetLevels(levels);
@@ -75,9 +81,9 @@ public class Game
 
     public void Run() {
         Console.Clear();
-        List<List<Room>> rooms = _levelManager.GetRooms();
         bool isRunning = true;
         while(isRunning) {
+            List<List<Room>> rooms = _levelManager.GetRooms();
             if(_player.Health <= 0){
                 YouLose();
             }
@@ -89,10 +95,12 @@ public class Game
                 if(_levelManager.ChangeToNextLevel() == false) {
                     YouWin();
                 }
+                rooms = _levelManager.GetRooms();
                 int[] cords = _levelManager.findStart();
                 if(cords != null) {
                     _player.setCords(cords[1], cords[0]);
                 }
+                continue;
             }
             currentRoom.Render();
             //TODO: Function to handle input
@@ -119,6 +127,11 @@ public class Game
             case "attack":
                 Attack();
                 break;
+            case "q":
+            case "quit":
+            case "exit":
+                CloseApp();
+                break;
             default:
                 System.Console.WriteLine("invalid selection. please try again.");
                 break;
@@ -126,10 +139,10 @@ public class Game
     }
 
     public void ProposedMove(int x_offset, int y_offset){
-        if(_player.X + x_offset >= _levelManager.GetRooms()[1].Count-1 || _player.X + x_offset < 0) {
+        if(_player.X + x_offset >= _levelManager.GetRooms()[1].Count || _player.X + x_offset < 0) {
             return;
         }
-        if(_player.Y + y_offset >= _levelManager.GetRooms().Count-1 || _player.Y + y_offset < 0) {
+        if(_player.Y + y_offset >= _levelManager.GetRooms().Count || _player.Y + y_offset < 0) {
             return;
         }
 

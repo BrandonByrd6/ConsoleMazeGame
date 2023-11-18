@@ -1,0 +1,23 @@
+Level Number: 2
+Width: 8
+Height: 8
+
+Map:
+0,2: You start in damp and dark room your only exit down.,0,0,0,0,0,0
+1:A Dead End Leading no where. Only a small rodent in the corridor,1: You can See the room you started in and a long corridor in front of you,0,0,0,0,0,0
+0,1:The Corridor branches now you must pick a way to go?,1: The Corridor Continues,1: A dim and decreped tunnel. Then Exit down seems brighter than everywhere else,1:The corridor seems to be coming to end,1: Small Room with another Rodont but Larger then the last,0,0
+0,1:The Corridor Continues,0,1:Each Step it seems be getting brighter,0,1:The tunnel seems to be getting smaller ever step forward,0,0
+1:Another Dead End,1:The Corridor Continues,0,1:it's So bight now It's Starting to hurt your eyes,0,1:The Corridor is now so small your crawling round,1:The Corridor has opened back up now you can atlest stand,1:Another Cornor
+0,1,1:A small Corridor Connecting you to another,1:Your now Starting to feel the Heat on your Skin,0,0,0,1
+0,1,0,1,0,0,1: Just another Corner,1:So Many Turns in this Maze
+0,1:just another Deadend,0,1:You see know that the Maze ends at the Edge of a cleif with one step you would Die,0,0,3:You Have Found the End,0
+
+Enemies:
+0,0,0,0,0,0,0,0
+Rodent:3:1,0,0,0,0,0,0,0
+0,0,0,0,0,Rodent:6:1,0,0
+0,0,0,0,0,0,0,0
+0,0,0,0,0,0,0,0
+0,0,0,0,0,0,0,0
+0,0,0,0,0,0,0,0
+0,0,0,0,0,0,0,0

@@ -267,63 +267,63 @@ public class LevelManager
             return RoomType.None;
         }
 
-        if (roomAbove == 1 && roomBelow == 1 && roomLeft == 1 && roomRight == 1)
+        if (roomAbove >= 1 && roomBelow >= 1 && roomLeft >= 1 && roomRight >= 1)
         {
             return RoomType.All;
         }
-        else if (roomAbove == 1 && roomBelow == 1 && roomLeft == 1)
+        else if (roomAbove >= 1 && roomBelow >= 1 && roomLeft >= 1)
         {
             return RoomType.UpDownLeft;
         }
-        else if (roomAbove == 1 && roomBelow == 1 && roomRight == 1)
+        else if (roomAbove >= 1 && roomBelow >= 1 && roomRight >= 1)
         {
             return RoomType.UpDownRight;
         }
-        else if (roomAbove == 1 && roomLeft == 1 && roomRight == 1)
+        else if (roomAbove >= 1 && roomLeft >= 1 && roomRight >= 1)
         {
             return RoomType.LeftRightUp;
         }
-        else if (roomBelow == 1 && roomLeft == 1 && roomRight == 1)
+        else if (roomBelow >= 1 && roomLeft >= 1 && roomRight >= 1)
         {
             return RoomType.LeftRightDown;
         }
-        else if (roomAbove == 1 && roomLeft == 1)
+        else if (roomAbove >= 1 && roomLeft >= 1)
         {
             return RoomType.UpLeft;
         }
-        else if (roomAbove == 1 && roomBelow == 1)
+        else if (roomAbove >= 1 && roomBelow >= 1)
         {
             return RoomType.UpDown;
         }
-        else if (roomAbove == 1 && roomRight == 1)
+        else if (roomAbove >= 1 && roomRight >= 1)
         {
             return RoomType.UpRight;
         }
-        else if (roomBelow == 1 && roomLeft == 1)
+        else if (roomBelow >= 1 && roomLeft >= 1)
         {
             return RoomType.DownLeft;
         }
-        else if (roomBelow == 1 && roomRight == 1)
+        else if (roomBelow >= 1 && roomRight >= 1)
         {
             return RoomType.DownRight;
         }
-        else if (roomLeft == 1 && roomRight == 1)
+        else if (roomLeft >= 1 && roomRight >= 1)
         {
             return RoomType.LeftRight;
         }
-        else if (roomRight == 1)
+        else if (roomRight >= 1)
         {
             return RoomType.Right;
         }
-        else if (roomLeft == 1)
+        else if (roomLeft >= 1)
         {
             return RoomType.Left;
         }
-        else if (roomBelow == 1)
+        else if (roomBelow >= 1)
         {
             return RoomType.Down;
         }
-        else if (roomAbove == 1)
+        else if (roomAbove >= 1)
         {
             return RoomType.Up;
         }

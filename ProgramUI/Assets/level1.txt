@@ -1,0 +1,23 @@
+Level Number: 1
+Width: 8
+Height: 8
+
+Map:
+2:there are two long paths ahead of you,1:this seems to keep going,1,1,1:turn ahead,0,0,0
+1:this continues straight,0,1,0,1,0,1,1:a dark, empty room
+1,0,1:could this be it?,0,0,0,1:oh no a spider!,0
+1:multiple coridors open up,1:this continues,1:a turn opens up,1,1,1:several options,1:turn coming up,0
+1:dead end. Rodent appears!,0,0,0,0,1,0,0
+0,0,1,1,1:choose wisely...,1:BRAINS!!!,0,0
+1:wong way lol,1,0,0,1,0,0,0
+0,1:escape is near...,1,1,1:several paths open up,1,1:it's like a half-man half-bear! And half pig! ,3: THE END!!!
+
+Enemies:
+0,0,0,0,Rodent:3:0,0,0,0
+Zombie:5:3,0,0,0,0,0,0,Rodent:3:1
+0,0,0,0,0,0,Spider:2:1,0
+0,0,0,Zombie:6:3,0,0,0,0
+Rodent:3:1,0,0,0,0,0,0,0
+0,0,0,0,0,Zombie:6:3,0,0
+Spider:2:1,0,0,0,0,0,0,0
+0,Zombie:6:3,0,Rodent:3:1,0,0,ManBearPig:8:4,0

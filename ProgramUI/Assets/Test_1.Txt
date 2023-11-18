@@ -4,7 +4,7 @@ Height: 8
 
 Map:
 2:infront of you. You see along Cordorr,0,0,1:The End of A Cordorr,0,0,0,0
-1:The First Branch of in the Cordorr,1:This Seems to keep going,1,1,1,1,1,1
+3:The First Branch of in the Cordorr,1:This Seems to keep going,1,1,1,1,1,1
 1,0,0,1,0,0,0,1
 1,1,1,1,1,1,1,1 
 1,0,0,1,0,0,0,1
