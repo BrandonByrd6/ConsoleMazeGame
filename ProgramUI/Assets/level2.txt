@@ -2,6 +2,15 @@ Level Number: 2
 Width: 8
 Height: 8
 
+0,2,0,0,0,0,0,0
+1,1,0,0,0,0,0,0
+0,1,1,1,1,1,0,0
+0,1,0,1,0,1,0,0
+1,1,0,1,0,1,1,1
+0,1,1,1,0,0,0,1
+0,1,0,1,0,0,1,1
+0,1,0,1,0,0,3,0
+
 Map:
 0,2: You start in damp and dark room your only exit down.,0,0,0,0,0,0
 1:A Dead End Leading no where. Only a small rodent in the corridor,1: You can See the room you started in and a long corridor in front of you,0,0,0,0,0,0

@@ -39,9 +39,16 @@ public class Game
             . . .
             . 0 0
         */
+
+        // Room start = new Room(RoomType.Down, "Foggy and empty Forset", new List<Enemy>());
+        // start.setGoalType(GoalType.Start);
+
+        // Room end = new Room(RoomType.UpDown, "You See a Branching Path ahead", new List<Enemy>());
+        // end.setGoalType(GoalType.End);
+
         // List<List<Room>> rooms = new List<List<Room>>{
         //     new List<Room>{
-        //         new Room(RoomType.Down, "Foggy and empty Forset", new List<Enemy>()),
+        //         start,
         //         new Room(RoomType.None, "", new List<Enemy>()),
         //         new Room(RoomType.None, "Foggy and empty Forset", new List<Enemy>()),
         //     },
@@ -51,18 +58,20 @@ public class Game
         //         new Room(RoomType.LeftRight, "Contining Straight", new List<Enemy>()),
         //     },
         //     new List<Room>{
-        //         new Room(RoomType.UpDown, "You See a Branching Path ahead", new List<Enemy>()),
+        //         end,
         //         new Room(RoomType.None, "Contining Straight", new List<Enemy>()),
         //         new Room(RoomType.None, "Contining Straight", new List<Enemy>()),
         //     }
         // };
-        //
+        
         // List<Level> levels = new List<Level>{
-        //  new Level(1, rooms);  
-        //}
+        //  new Level(1, rooms),  
+        //  new Level(2, rooms)
+        // };
+
         // _levelManager = new LevelManager(levels);
 
-        //TODO: Load Levels from files 
+        // //TODO: Load Levels from files 
 
         _levelManager = new LevelManager();
 
@@ -83,6 +92,7 @@ public class Game
         Console.Clear();
         bool isRunning = true;
         while(isRunning) {
+            Console.Clear();
             List<List<Room>> rooms = _levelManager.GetRooms();
             if(_player.Health <= 0){
                 YouLose();
@@ -154,12 +164,14 @@ public class Game
 
     private void RunApp()
     {
+        Console.Clear();
         bool isRunning = true;
         while(isRunning)
         {
             System.Console.WriteLine("welcome to our game!\n" +
             "please enter the option you would like to select:\n"+
-            "1. Start Game\n");
+            "1. Start Game\n"+
+            "2. Quit");
             // todo: leaderboard? select player/item/attacks?
 
             string userInput = Console.ReadLine()!.ToLower();
@@ -169,6 +181,12 @@ public class Game
                 case "1":
                 case "start":
                     Run();
+                    break;
+                case "2":
+                case "q":
+                case "quit":
+                case "exit":
+                    CloseApp();
                     break;
                 default:
                     System.Console.WriteLine("invalid selection. please try again.");
@@ -220,7 +238,7 @@ public class Game
                 break;
             case "2":
             case "exit":
-                Exit();
+                CloseApp();
                 break;
             default:
                 System.Console.WriteLine("invalid selection. please try again.");
@@ -233,11 +251,6 @@ public class Game
         RunApp();
     }
 
-    private void Exit()
-    {
-        CloseApp();
-    }
-
     private void Attack()
     {
         Room tempRoom = _levelManager.CurrentLevel.Rooms[_player.Y][_player.X];
@@ -246,11 +259,11 @@ public class Game
         enemy.Health = enemy.Health - _player.BaseDamage;
     }
 
-    private bool CloseApp()
+    private void CloseApp()
     {
         System.Console.WriteLine("Thanks for playing");
         PressAnyKey();
-        return false;
+        Environment.Exit(0);
     }
 
     private void PressAnyKey()

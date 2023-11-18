@@ -56,7 +56,6 @@ public class LevelManager
             {
                 CurrentLevel = level;
                 return true;
-                break;
             }
         }
         if(CurrentLevel.LevelNumber != newLevelNumber){
