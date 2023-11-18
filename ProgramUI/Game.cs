@@ -66,10 +66,15 @@ public class Game
         };
 
         _levelManager.SetLevels(levels);
+        int[] cords = _levelManager.findStart();
+        if(cords != null) {
+            _player.setCords(cords[1], cords[0]);
+        }
     }
 
 
     public void Run() {
+        Console.Clear();
         List<List<Room>> rooms = _levelManager.GetRooms();
         bool isRunning = true;
         while(isRunning) {
@@ -81,14 +86,19 @@ public class Game
             if(currentRoom.GoalType == GoalType.End) {
                 YouWinLevel();
                 PressAnyKey();
-                _levelManager.ChangeToNextLevel();
-                // _levelManager.findStart();
+                if(_levelManager.ChangeToNextLevel() == false) {
+                    YouWin();
+                }
+                int[] cords = _levelManager.findStart();
+                if(cords != null) {
+                    _player.setCords(cords[1], cords[0]);
+                }
             }
-
             currentRoom.Render();
             //TODO: Function to handle input
             string userInput = Console.ReadLine();
             HandleInput(userInput);
+            Console.Clear();
         }
     }
 
@@ -116,8 +126,14 @@ public class Game
     }
 
     public void ProposedMove(int x_offset, int y_offset){
-        Room pRoom = _levelManager.GetRooms()[_player.Y + y_offset][_player.X + x_offset];
+        if(_player.X + x_offset >= _levelManager.GetRooms()[1].Count-1 || _player.X + x_offset < 0) {
+            return;
+        }
+        if(_player.Y + y_offset >= _levelManager.GetRooms().Count-1 || _player.Y + y_offset < 0) {
+            return;
+        }
 
+        Room pRoom = _levelManager.GetRooms()[_player.Y + y_offset][_player.X + x_offset];
         if(pRoom.RoomType != RoomType.None) {
             _player.move(x_offset, y_offset);   
         }

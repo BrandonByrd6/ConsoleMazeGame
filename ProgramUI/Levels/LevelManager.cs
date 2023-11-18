@@ -1,3 +1,5 @@
+using System.Reflection.Metadata.Ecma335;
+using System.Runtime.CompilerServices;
 using ProgramUI.Entites.Enemies;
 using ProgramUI.Levels.Rooms;
 
@@ -45,7 +47,7 @@ public class LevelManager
     //Currently Level
 
     //Method to Change Level
-    public void ChangeToNextLevel()
+    public bool ChangeToNextLevel()
     {
         int newLevelNumber = CurrentLevel.LevelNumber + 1;
         foreach (Level level in Levels)
@@ -53,9 +55,26 @@ public class LevelManager
             if (level.LevelNumber == newLevelNumber)
             {
                 CurrentLevel = level;
+                return true;
                 break;
             }
         }
+        if(CurrentLevel.LevelNumber != newLevelNumber){
+            return false;
+        }
+        return false;
+    }
+
+    public int[] findStart() {
+        for(int y = 0; y < CurrentLevel.Rooms.Count(); y++) {
+            for(int x = 0; x < CurrentLevel.Rooms[y].Count(); x++) {
+                Room room = CurrentLevel.Rooms[y][x];
+                if(room.GoalType == GoalType.Start) {
+                    return new int[2]{y, x};
+                }
+            }
+        }
+        return null;
     }
 
     //Method to get current level list of rooms

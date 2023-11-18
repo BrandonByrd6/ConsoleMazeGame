@@ -7,7 +7,7 @@ class Program {
         //    => Starts the Game
 
         Game game = new Game();
-        game.Run();
+        game.RunGame();
 
         return 0;
     }

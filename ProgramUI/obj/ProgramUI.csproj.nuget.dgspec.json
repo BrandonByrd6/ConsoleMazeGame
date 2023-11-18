@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\isaia\\OneDrive\\Desktop\\ElevenFiftyProjects_177\\assignments\\consoleGame\\consolemazegame\\ProgramUI\\ProgramUI.csproj": {}
+    "/mnt/f/ElevenFiftyProjects/dotnetProjects/ConsoleMazeGame/ProgramUI/ProgramUI.csproj": {}
   },
   "projects": {
-    "C:\\Users\\isaia\\OneDrive\\Desktop\\ElevenFiftyProjects_177\\assignments\\consoleGame\\consolemazegame\\ProgramUI\\ProgramUI.csproj": {
+    "/mnt/f/ElevenFiftyProjects/dotnetProjects/ConsoleMazeGame/ProgramUI/ProgramUI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\isaia\\OneDrive\\Desktop\\ElevenFiftyProjects_177\\assignments\\consoleGame\\consolemazegame\\ProgramUI\\ProgramUI.csproj",
+        "projectUniqueName": "/mnt/f/ElevenFiftyProjects/dotnetProjects/ConsoleMazeGame/ProgramUI/ProgramUI.csproj",
         "projectName": "ProgramUI",
-        "projectPath": "C:\\Users\\isaia\\OneDrive\\Desktop\\ElevenFiftyProjects_177\\assignments\\consoleGame\\consolemazegame\\ProgramUI\\ProgramUI.csproj",
-        "packagesPath": "C:\\Users\\isaia\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\isaia\\OneDrive\\Desktop\\ElevenFiftyProjects_177\\assignments\\consoleGame\\consolemazegame\\ProgramUI\\obj\\",
+        "projectPath": "/mnt/f/ElevenFiftyProjects/dotnetProjects/ConsoleMazeGame/ProgramUI/ProgramUI.csproj",
+        "packagesPath": "/home/grandon/.nuget/packages/",
+        "outputPath": "/mnt/f/ElevenFiftyProjects/dotnetProjects/ConsoleMazeGame/ProgramUI/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\isaia\\AppData\\Roaming\\NuGet\\NuGet.Config"
+          "/home/grandon/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net7.0"
@@ -53,7 +53,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.401\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/lib/dotnet/sdk/7.0.114/RuntimeIdentifierGraph.json"
         }
       }
     }
