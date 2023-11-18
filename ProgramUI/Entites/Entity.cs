@@ -5,7 +5,7 @@ public abstract class Entity
     //Name 
     public string Name { get; protected set; }
     //Health   
-    public int Health { get; protected set; }
+    public int Health { get; set; }
     //base Damage
     public int BaseDamage { get; protected set; }
 

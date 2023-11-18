@@ -73,12 +73,16 @@ public class Game
         List<List<Room>> rooms = _levelManager.GetRooms();
         bool isRunning = true;
         while(isRunning) {
+            if(_player.Health <= 0){
+                YouLose();
+            }
+            System.Console.WriteLine($"{_player.Health} health, {_player.BaseDamage} damage \n" );
             Room currentRoom = rooms[_player.Y][_player.X];
             if(currentRoom.GoalType == GoalType.End) {
                 YouWinLevel();
                 PressAnyKey();
                 _levelManager.ChangeToNextLevel();
-                _levelManager.findStart();
+                // _levelManager.findStart();
             }
 
             currentRoom.Render();
@@ -103,7 +107,7 @@ public class Game
                 ProposedMove(+1, 0);
                 break;
             case "attack":
-                //Todo: Attack stuff
+                Attack();
                 break;
             default:
                 System.Console.WriteLine("invalid selection. please try again.");
@@ -203,6 +207,14 @@ public class Game
     private void Exit()
     {
         CloseApp();
+    }
+
+    private void Attack()
+    {
+        Room tempRoom = _levelManager.CurrentLevel.Rooms[_player.Y][_player.X];
+        Enemy enemy = tempRoom.Enemies[0];
+        _player.Health = _player.Health - enemy.BaseDamage;
+        enemy.Health = enemy.Health - _player.BaseDamage;
     }
 
     private bool CloseApp()

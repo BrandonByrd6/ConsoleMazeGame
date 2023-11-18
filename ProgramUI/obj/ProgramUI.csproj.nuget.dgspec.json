@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "/mnt/f/ElevenFiftyProjects/dotnetProjects/ConsoleMazeGame/ProgramUI/ProgramUI.csproj": {}
+    "C:\\Users\\isaia\\OneDrive\\Desktop\\ElevenFiftyProjects_177\\assignments\\consoleGame\\consolemazegame\\ProgramUI\\ProgramUI.csproj": {}
   },
   "projects": {
-    "/mnt/f/ElevenFiftyProjects/dotnetProjects/ConsoleMazeGame/ProgramUI/ProgramUI.csproj": {
+    "C:\\Users\\isaia\\OneDrive\\Desktop\\ElevenFiftyProjects_177\\assignments\\consoleGame\\consolemazegame\\ProgramUI\\ProgramUI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/mnt/f/ElevenFiftyProjects/dotnetProjects/ConsoleMazeGame/ProgramUI/ProgramUI.csproj",
+        "projectUniqueName": "C:\\Users\\isaia\\OneDrive\\Desktop\\ElevenFiftyProjects_177\\assignments\\consoleGame\\consolemazegame\\ProgramUI\\ProgramUI.csproj",
         "projectName": "ProgramUI",
-        "projectPath": "/mnt/f/ElevenFiftyProjects/dotnetProjects/ConsoleMazeGame/ProgramUI/ProgramUI.csproj",
-        "packagesPath": "/home/grandon/.nuget/packages/",
-        "outputPath": "/mnt/f/ElevenFiftyProjects/dotnetProjects/ConsoleMazeGame/ProgramUI/obj/",
+        "projectPath": "C:\\Users\\isaia\\OneDrive\\Desktop\\ElevenFiftyProjects_177\\assignments\\consoleGame\\consolemazegame\\ProgramUI\\ProgramUI.csproj",
+        "packagesPath": "C:\\Users\\isaia\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\isaia\\OneDrive\\Desktop\\ElevenFiftyProjects_177\\assignments\\consoleGame\\consolemazegame\\ProgramUI\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/home/grandon/.nuget/NuGet/NuGet.Config"
+          "C:\\Users\\isaia\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net7.0"
@@ -53,7 +53,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/lib/dotnet/sdk/7.0.114/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.401\\RuntimeIdentifierGraph.json"
         }
       }
     }
