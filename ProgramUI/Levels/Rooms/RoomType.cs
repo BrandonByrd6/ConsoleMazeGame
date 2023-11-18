@@ -7,15 +7,26 @@ public enum RoomType
     Down,
     Left,
     Right,
+    // D
     LeftRight,
+    //D
     UpDown,
+    //D
     UpRight,
+    //D
     UpLeft,
+    //D
     DownRight,
+    //D
     DownLeft,
+    // D
     UpDownLeft,
+    //D
     UpDownRight,
+    //D
     LeftRightUp,
+    //D
     LeftRightDown,
+    //D
     All,
 }

@@ -58,11 +58,16 @@ public class LevelManager
         List<List<Room>> rooms = new List<List<Room>>();
 
         var lines = File.ReadAllLines(Path);
-        for (int i = 0; i < lines.Count(); i++)
+        for (int i = 0; i < lines.Length; i++)
         {
             if (map == true)
             {
                 int maxMap = i + height;
+                // 2d map_array -> so we can index them based off of there Y, X values= [
+                //    []
+                // ]
+                // "1,0,0,1,0,0,0,1"
+                // ["1", "0", "0", "1", etc]
                 string[][] map_array = new string[height][];
                 int x = 0;
                 for (int y = i; y < maxMap; y++)
@@ -97,6 +102,14 @@ public class LevelManager
                 i = i + height-1;
             }
 
+
+            // line[i] = Level Number: 1
+            // Tokens = ["Level Number", "1"]
+
+
+
+
+
             string[] tokens = lines[i].Split(":");
             if (tokens[0] == "Level Number")
             {
@@ -113,7 +126,7 @@ public class LevelManager
             else if (tokens[0] == "Map" && map == false)
             {
                 map = true;
-            } else if (tokens[0] == "Enemies") {
+            } else if (tokens[0] == "Enemies" && enemy == false) {
                 enemy = true;
             }
         }
@@ -135,6 +148,13 @@ public class LevelManager
 
     private List<Enemy> ParseEnemies(string v)
     {
+        //Rodent:10:1;Rodent:10:1
+        //Rodent:10:1
+        // 0
+        // ["Rodent:10:1"]
+        // ["Rodent": "10", "1"]
+        //.split(';')
+        // ["Rodent:10:1", "Rodent:10:1"]
         string [] enemiesString = v.Split(';');
         List<Enemy> enemies = new List<Enemy>();
         foreach (string e in enemiesString){
@@ -155,6 +175,11 @@ public class LevelManager
             for (int x = 0; x < map[y].Length; x++)
             {
                 string descriptiveText = "";
+                //1:infront of you. You see along Cordorr
+                // int 1
+                // "1".split(":")
+                // ["1"].length == 1
+                // ["1", "infront of you. You see along Cordorr"] = 2 
                 if(GetRoomNumber(map[y][x]) != 0){
                     string[] roomSplit = map[y][x].Split(':');
                     if(roomSplit.Length > 1) {

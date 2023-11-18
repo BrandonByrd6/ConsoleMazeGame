@@ -72,6 +72,7 @@ public class Game
         // rooms[1][1].Render();
         // rooms[1][2].Render();
         // rooms[2][0].Render();
-        _levelManager.GenerateLevelFromFile("./ProgramUI/Assets/Test_1.Txt");
+        Level level = _levelManager.GenerateLevelFromFile("./ProgramUI/Assets/Test_1.Txt");
+        System.Console.WriteLine(level.Rooms[0][3].Enemies.Count);
     }
 }
